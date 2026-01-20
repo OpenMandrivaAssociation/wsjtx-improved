@@ -1,12 +1,12 @@
 %define	_disable_ld_no_undefined 1
-%define sourcedate 251101
+%define sourcedate 251212
 %define version_no_date 3.0.0
 %define oname wsjtx
 
 Name:		wsjtx-improved
 Summary:	Provides all popular modes for Weak Signal digital Amateur Radio
 Version:	3.0.0.%{sourcedate}
-Release:	2
+Release:	1
 License:	GPL-3.0-or-later
 URL:		https://sourceforge.net/projects/wsjt-x-improved/
 Group:		Communications/Radio
