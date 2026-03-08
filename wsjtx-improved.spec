@@ -1,16 +1,15 @@
 %define	_disable_ld_no_undefined 1
-%define sourcedate 251212
-%define version_no_date 3.0.0
 %define oname wsjtx
+%define sourcedate 260306
 
 Name:		wsjtx-improved
 Summary:	Provides all popular modes for Weak Signal digital Amateur Radio
-Version:	3.0.0.%{sourcedate}
+Version:	3.1.0
 Release:	1
 License:	GPL-3.0-or-later
-URL:		https://sourceforge.net/projects/wsjt-x-improved/
+URL:		https://sourceforge.net/projects/wsjt-x-improved
 Group:		Communications/Radio
-Source0:	https://sourceforge.net/projects/wsjt-x-improved/files/WSJT-X_v%{version_no_date}/Source%%20code/Qt6/wsjtx-%{version_no_date}_improved_PLUS_%{sourcedate}_qt6.tgz
+Source0:	%{URL}/files/WSJT-X_v%{version}/Source%%20code/Qt6/%{oname}-%{version}_improved_PLUS_%{sourcedate}_qt6.tgz
 
 BuildRequires:	a2x
 BuildRequires:	asciidoc
@@ -82,7 +81,7 @@ the following modes:
 FST4, FST4W, FT4, FT8, JT4, JT9, JT65, Q65, MSK144, WSPR and Echo.
 
 %prep
-%autosetup -n %{oname}-%{version_no_date} -p1
+%autosetup -n %{oname}-%{version} -p1
 # remove bundled hamlib
 rm -f src/hamlib*.tgz* src/hamlib*.tar.gz*
 # Extract wsjtx source and clean up
@@ -122,7 +121,7 @@ sed -i -z -e 's@install (FILES\n  ALLCALL7.TXT\n  DESTINATION ${CMAKE_INSTALL_BI
 
 export CFLAGS="%{optflags} -fno-lto -Wno-error=deprecated-declarations -Wno-error=unused-result"
 export CXXFLAGS="%{optflags} -fno-lto -Wno-error=deprecated-declarations -Wno-error=unused-result"
-export LDFLAGS="-Wl,--as-needed"
+export LDFLAGS="%{ldflags} -Wl,--as-needed"
 # suppress fortran warning log spam
 export FFLAGS="-fallow-argument-mismatch"
 export CC=/usr/bin/gcc
@@ -179,6 +178,7 @@ install -p -m 0644 -t %{buildroot}%{_datadir}/doc/%{oname} GUIcontrols.txt jt9.t
 %{_bindir}/msk144code
 %{_bindir}/q65code
 %{_bindir}/q65sim
+%{_bindir}/qmap
 %{_bindir}/rigctl-wsjtx
 %{_bindir}/rigctlcom-wsjtx
 %{_bindir}/rigctld-wsjtx
