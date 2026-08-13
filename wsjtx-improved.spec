@@ -5,7 +5,7 @@
 Name:		wsjtx-improved
 Summary:	Provides all popular modes for Weak Signal digital Amateur Radio
 Version:	3.1.0
-Release:	2
+Release:	3
 License:	GPL-3.0-or-later
 URL:		https://sourceforge.net/projects/wsjt-x-improved
 Group:		Communications/Radio
