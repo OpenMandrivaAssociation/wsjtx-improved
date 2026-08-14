@@ -140,6 +140,8 @@ mkdir -p %{oname}/build
 	-DBOOST_LIBRARYDIR=%{_libdir} \
 	-DOpenMP_Fortran_FLAGS=-fopenmp \
 	-G Ninja
+# CMake injects clang's -fopenmp=libomp into gfortran rules
+sed -i 's/-fopenmp=libomp/-fopenmp/g' build/build.ninja
 
 %ninja_build
 
