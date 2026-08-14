@@ -138,6 +138,7 @@ mkdir -p %{oname}/build
 	-DBoost_NO_SYSTEM_PATHS=FALSE \
 	-DBOOST_INCLUDEDIR=%{_includedir}/boost \
 	-DBOOST_LIBRARYDIR=%{_libdir} \
+	-DOpenMP_Fortran_FLAGS=-fopenmp \
 	-G Ninja
 
 %ninja_build
