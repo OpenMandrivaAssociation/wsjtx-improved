@@ -124,8 +124,8 @@ export CFLAGS="%{optflags} -fno-lto -Wno-error=deprecated-declarations -Wno-erro
 export CXXFLAGS="%{optflags} -fno-lto -Wno-error=deprecated-declarations -Wno-error=unused-result"
 # suppress fortran warning log spam; -fPIC is required for CMake's FortranCInterface
 # check (ld.lld rejects R_X86_64_32S against a non-PIC .text)
-export FFLAGS="%{optflags} -fPIC -fno-lto -fallow-argument-mismatch"
-export FCFLAGS="%{optflags} -fPIC -fno-lto -fallow-argument-mismatch"
+export FFLAGS="%{optflags} -fPIC -fno-lto -fallow-argument-mismatch -std=legacy"
+export FCFLAGS="%{optflags} -fPIC -fno-lto -fallow-argument-mismatch -std=legacy"
 export FC=/usr/bin/gfortran
 # workaround for hamlib check, i.e. for hamlib_LIBRARY_DIRS not to be empty
 export PKG_CONFIG_ALLOW_SYSTEM_LIBS=1
